@@ -37,7 +37,7 @@ export default function Home() {
                 <Button type='secondary'>Resume</Button>
               </div>
               <p className={styles.aboutRightDesc}>
-                A learner who's happy with visual things in tech, currently
+                A learner who&apos;s happy with visual things in tech, currently
                 focussing on JavaScript Frontend Technology. Very confident with
                 this stack:
               </p>
