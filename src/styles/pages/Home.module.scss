@@ -1,0 +1,182 @@
+@import '../scss/mixins';
+
+.main {
+  width: 100%;
+  height: calc(100vh - 60px);
+  /* height: 100vh; */
+  @include centerFlexColumn;
+
+  .about {
+    min-width: 270px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px #0001;
+    overflow: hidden;
+    border-radius: 10px;
+    &Left {
+      padding: 2rem 0 1.5rem;
+      flex: 0.75;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffeae8;
+      &Avatar {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        border-radius: 100%;
+      }
+      h2 {
+        font-size: 1.5rem;
+        position: relative;
+        padding-bottom: 0.2rem;
+        margin-top: 1rem;
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 50%;
+          height: 3px;
+          border-radius: 5px;
+          background: rgb(194, 30, 30);
+          background: linear-gradient(
+            90deg,
+            rgba(194, 30, 30, 1) 0%,
+            rgba(215, 36, 138, 1) 51%,
+            rgba(215, 57, 205, 1) 100%
+          );
+        }
+      }
+      h3 {
+        font-size: 0.9rem;
+        font-weight: 300;
+        margin-top: 0.7rem;
+      }
+    }
+    &Right {
+      flex: 1;
+      padding: 1rem;
+      @include centerFlexColumn;
+      h1 {
+        font-size: 2rem;
+        font-weight: 600;
+        span {
+          font-size: 1.8rem;
+        }
+      }
+      p {
+        margin-top: 0.5rem;
+        font-size: 0.7rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+      }
+      &Buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        button {
+          border: none;
+          outline: none;
+          padding: 0.5rem 1rem;
+        }
+      }
+      &Desc {
+        text-align: center;
+        font-size: 0.6rem;
+        font-weight: 400;
+        color: #888;
+      }
+      &Stack {
+        margin-top: 0.5rem;
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        li {
+          position: relative;
+          width: 25px;
+          height: 25px;
+        }
+      }
+    }
+  }
+}
+
+@include laptop() {
+  .main {
+    .about {
+      max-width: 900px;
+      margin-top: -5rem;
+      min-width: 500px;
+      height: 350px;
+      flex-direction: row;
+      box-shadow: 0 0 10px #0002;
+      &Left {
+        flex: 0.75;
+        @include centerFlexColumn;
+        background-color: $color-primary;
+        &Avatar {
+          position: relative;
+          width: 100px;
+          height: 100px;
+          overflow: hidden;
+          border-radius: 100%;
+        }
+        h2 {
+          position: relative;
+          font-weight: 600;
+        }
+        h3 {
+          font-size: 0.9rem;
+          font-weight: 300;
+          margin-top: 0.5rem;
+        }
+      }
+      &Right {
+        flex: 1;
+        padding: 2rem;
+        h1 {
+          font-size: 2.5rem;
+          font-weight: 600;
+          span {
+            font-size: 2.1rem;
+          }
+        }
+        p.aboutRightSubText {
+          font-size: 1rem;
+        }
+        &Buttons {
+          display: flex;
+          flex-direction: row;
+          gap: 1rem;
+          margin-bottom: 1rem;
+          button {
+            border: none;
+            outline: none;
+            padding: 0.5rem 1rem;
+          }
+        }
+        p.aboutRightDesc {
+          text-align: center;
+          font-size: 0.7rem;
+          font-weight: 400;
+        }
+        &Stack {
+          display: flex;
+          flex-direction: row;
+          gap: 1rem;
+          li {
+            position: relative;
+            width: 25px;
+            height: 25px;
+          }
+        }
+      }
+    }
+  }
+}
