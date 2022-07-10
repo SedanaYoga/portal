@@ -2,7 +2,9 @@
 
 .container {
   overflow: hidden;
-  margin: 1rem auto 0;
+  min-height: 100vh;
+  height: auto;
+  margin: 0 auto;
   padding: 0 2rem;
   @include laptop() {
     max-width: 1200px;

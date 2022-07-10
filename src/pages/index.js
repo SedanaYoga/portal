@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import NormalLayout from '../layouts/Normal/NormalLayout'
 import Button from '../components/Button/Button'
 import styles from '../styles/pages/Home.module.scss'
@@ -33,8 +34,12 @@ export default function Home() {
                 Here&rsquo;s who I am and my expertises
               </p>
               <div className={styles.aboutRightButtons}>
-                <Button>Works</Button>
-                <Button type='secondary'>Resume</Button>
+                <Link href='/works'>
+                  <Button>Works</Button>
+                </Link>
+                <Link href='/resume'>
+                  <Button type='secondary'>Resume</Button>
+                </Link>
               </div>
               <p className={styles.aboutRightDesc}>
                 A learner who&apos;s happy with visual things in tech, currently
