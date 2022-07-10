@@ -3,6 +3,7 @@
 .main {
   margin-top: 4rem;
   width: 100%;
+  margin-bottom: 2rem;
   @include centerFlexColumn;
   .about {
     min-width: 270px;

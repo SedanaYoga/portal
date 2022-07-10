@@ -1,6 +1,7 @@
 import styles from './NavBar.module.scss'
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const NavBar = () => {
   const [isNavExpand, setIsNavExpand] = useState(false)
@@ -18,9 +19,15 @@ const NavBar = () => {
         <Image src='/images/hamburger_icon.svg' alt='hamburger' layout='fill' />
       </div>
       <ul className={isNavExpand ? styles.expand : ''}>
-        <li style={{ '--index': 0 }}>Home</li>
-        <li style={{ '--index': 1 }}>Works</li>
-        <li style={{ '--index': 2 }}>Resume</li>
+        <li style={{ '--index': 0 }}>
+          <Link href='/'>Home</Link>
+        </li>
+        <li style={{ '--index': 1 }}>
+          <Link href='/works'>Works</Link>
+        </li>
+        <li style={{ '--index': 2 }}>
+          <Link href='/resume'>Resume</Link>
+        </li>
       </ul>
     </nav>
   )
