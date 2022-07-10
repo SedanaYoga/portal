@@ -58,6 +58,7 @@
       }
     }
     &Right {
+      background: $color-ternary;
       flex: 1;
       padding: 1rem;
       @include centerFlexColumn;
@@ -108,8 +109,9 @@
 
 @include laptop() {
   .main {
+    margin: 0;
     width: 100%;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 54px);
     @include centerFlexColumn;
     .about {
       max-width: 900px;
