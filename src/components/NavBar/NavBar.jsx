@@ -11,14 +11,14 @@ const NavBar = () => {
   return (
     <nav className={styles.nav}>
       <div className={styles.navLeft}>
-        <h1>
+        <h1 className='noselect'>
           Sedana Yoga <span>| FRONTEND DEVELOPER</span>
         </h1>
       </div>
       <div onClick={expandHamburger} className={styles.navHamburger}>
         <Image src='/images/hamburger_icon.svg' alt='hamburger' layout='fill' />
       </div>
-      <ul className={isNavExpand ? styles.expand : ''}>
+      <ul className={`${isNavExpand ? styles.expand : ''} noselect`}>
         <li style={{ '--index': 0 }}>
           <Link href='/'>Home</Link>
         </li>
