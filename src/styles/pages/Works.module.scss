@@ -2,4 +2,13 @@
 
 .works {
   margin-top: 4rem;
+  text-align: center;
+  @include centerFlexColumn;
+  &Title {
+    margin-bottom: 1rem;
+  }
+  &Grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }
