@@ -2,6 +2,7 @@ const works = [
   {
     id: 'abc123',
     title: 'urList',
+    logo: 'https://camo.githubusercontent.com/a59805baa04af436cdfa9b1704791c745f5f175382d0ffffc4224c17670c33b4/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f77593578616673687a704e50734f5a6363666c374e6454636558746b2d4c33626a69424558305078764c7a6a6553484632546d31793355645a534659794e7744497a5f685a6a594e436a785f7345307176456431436f3679367535394677324241587a722d7570504a6b777745543341354e6c575056483269316264706d54756573656f7838782d69513d7732343030',
     quote: 'Store, Secure, Seamlessly',
     brief:
       'urList, stands for urgent list, is a self- project that was intended to simplify my work.As a test analyst, I had to memorize a lot of accounts, commandlines, notes from seniors, meeting, etc.So, I created this to make it easier to see / retrieve my data.',
