@@ -1,11 +1,22 @@
+import { useCallback, useEffect, useState } from 'react'
 import NormalLayout from '../../layouts/Normal/NormalLayout'
 import styles from '../../styles/pages/Works.module.scss'
-import worksData from '../works.js'
+import { getWorksData } from '../../firebase/firebase.utils'
 
 const Works = () => {
+  const [works, setWorks] = useState([])
+  const getWorks = useCallback(async () => {
+    const works = await getWorksData()
+    setWorks(works)
+  }, works)
+
+  useEffect(() => {
+    getWorks()
+  }, [getWorks])
+
   return (
     <section className={styles.works}>
-      {worksData.map((work) => (
+      {works.map((work) => (
         <div key={work.id}>
           <h1>{work.title}</h1>
           <h3>{work.quote}</h3>
