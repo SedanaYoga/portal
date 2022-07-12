@@ -1,15 +1,26 @@
+import { useCallback, useEffect, useState } from 'react'
 import NormalLayout from '../../layouts/Normal/NormalLayout'
 import WorkCard from '../../components/WorkCard/WorkCard'
-import styles from '../../styles/pages/Works.module.scss'
-import worksData from '../works.js'
 import Link from 'next/link'
+import styles from '../../styles/pages/Works.module.scss'
+import { getWorksData } from '../../firebase/firebase.utils'
 
 const Works = () => {
+  const [works, setWorks] = useState([])
+  const getWorks = useCallback(async () => {
+    const works = await getWorksData()
+    setWorks(works)
+  }, [])
+
+  useEffect(() => {
+    getWorks()
+  }, [getWorks])
+
   return (
     <section className={styles.works}>
       <h1 className={styles.worksTitle}>My Works</h1>
       <div className={styles.worksGrid}>
-        {worksData.map((work) => (
+        {works.map((work) => (
           <Link key={work.id} href={`/`}>
             <WorkCard work={work} />
           </Link>

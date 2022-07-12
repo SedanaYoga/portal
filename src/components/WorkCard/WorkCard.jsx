@@ -10,6 +10,7 @@ const WorkCard = forwardRef(({ work, onClick, href }, ref) => {
           layout='fill'
           src={work.demo[0]}
           alt={work.title}
+          priority
           className={styles.workCardHeaderImage}
         />
       </div>
