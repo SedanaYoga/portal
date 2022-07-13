@@ -12,6 +12,12 @@
   justify-content: center;
   align-items: center;
 }
+@mixin centerAbsolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 @mixin mobile() {
   @media (min-width: $bp-mobile) {

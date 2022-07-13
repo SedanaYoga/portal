@@ -1,1 +1,14 @@
 @import '../scss/mixins';
+
+.admin {
+  margin: 4rem auto 0;
+  text-align: center;
+  width: 300px;
+  /* &Title { */
+  /* } */
+  &Form {
+    margin-top: 1rem;
+    @include centerFlexColumn;
+    gap: 10px;
+  }
+}
