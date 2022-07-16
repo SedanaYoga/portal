@@ -1,20 +1,19 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import styles from './Input.module.scss'
 
-const Input = ({ children, type, onChange, required, name }) => {
+const Input = ({ children, inputValue, type, onChange, required, name }) => {
   const [value, setValue] = useState('')
   const [isFocus, setIsFocus] = useState(false)
   const hiddenFileInput = useRef(null)
 
   const changeHandler = (e) => {
+    // Change File Input
     if (type === 'file') {
-      const value = e.target.files[0]
-      const name = e.target.name
-      if (onChange) onChange({ value, name })
+      if (onChange) onChange(e)
     } else {
-      const { value, name } = e.target
+      const { value } = e.target
       setValue(value)
-      if (onChange) onChange({ value, name })
+      if (onChange) onChange(e)
       if (value && value !== '') {
         setIsFocus(true)
       } else {
@@ -26,6 +25,13 @@ const Input = ({ children, type, onChange, required, name }) => {
   const fileClickHandle = () => {
     hiddenFileInput.current.click()
   }
+
+  useEffect(() => {
+    if (inputValue) {
+      setValue(inputValue)
+      setIsFocus(true)
+    }
+  }, [inputValue])
 
   return (
     <div className={styles.input}>

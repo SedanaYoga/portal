@@ -1,0 +1,43 @@
+@import '../../styles/scss/mixins';
+@import '../../styles/scss/variable';
+
+.multiInput {
+  @include centerFlexColumn;
+  width: 100%;
+  &Collection {
+    @include centerFlexRow;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    gap: 10px;
+    position: relative;
+    &Form {
+      @include centerFlexRow;
+      width: 100%;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    &Close {
+      background: $color-secondary;
+      border: 1px solid black;
+      border-radius: 5px;
+      width: 2rem;
+      height: 2rem;
+      @include centerFlexRow;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  }
+
+  & > button {
+    background: $color-primary;
+    border: 1px solid black;
+    border-radius: 5px;
+    min-width: 400px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+}

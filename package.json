@@ -11,12 +11,15 @@
   "dependencies": {
     "classnames": "^2.3.1",
     "firebase": "^9.9.0",
+    "immer": "^9.0.15",
     "next": "12.2.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "shortid": "^2.2.16"
   },
   "devDependencies": {
     "@types/react": "^18.0.15",
+    "@types/shortid": "^0.0.29",
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.2",
     "sass": "^1.53.0"

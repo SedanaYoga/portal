@@ -2,14 +2,29 @@ import Head from 'next/head'
 import Image from 'next/image'
 import NormalLayout from '../../layouts/Normal/NormalLayout'
 import Input from '../../components/Input/Input'
+import MultiInput from '../../components/MultiInput/MultiInput'
 import styles from '../../styles/pages/Admin.module.scss'
 import { useState } from 'react'
 
 const Admin = () => {
   const [values, setValues] = useState({})
 
-  const changeHandler = ({ value, name }) => {
-    setValues({ ...values, [name]: value })
+  const changeHandler = (e) => {
+    // For Multi Input
+    if (e.name && e.value) {
+      setValues({ ...values, [e.name]: e.value })
+    } else {
+      const name = e.target.name
+      let value
+      // For files
+      if (e.target.files) {
+        value = e.target.files[0]
+        // For text
+      } else {
+        value = e.target.value
+      }
+      setValues({ ...values, [name]: value })
+    }
   }
 
   return (
@@ -40,6 +55,42 @@ const Admin = () => {
               height='100px'
             />
           )}
+          <MultiInput
+            input='learnt'
+            onChange={changeHandler}
+            objProps={[
+              { type: 'text', title: 'title' },
+              { type: 'textarea', title: 'description' },
+            ]}
+            mandatory
+          />
+          <MultiInput
+            input='relatedLinks'
+            onChange={changeHandler}
+            objProps={[
+              { type: 'text', title: 'name' },
+              { type: 'text', title: 'link' },
+            ]}
+            mandatory
+          />
+          <MultiInput
+            input='features'
+            onChange={changeHandler}
+            objProps={[{ type: 'text', title: 'feature' }]}
+            mandatory
+          />
+          <MultiInput
+            input='demo'
+            onChange={changeHandler}
+            objProps={[{ type: 'file', title: 'file' }]}
+            mandatory
+          />
+          <MultiInput
+            input='spaceForImprovement'
+            onChange={changeHandler}
+            objProps={[{ type: 'text', title: 'text' }]}
+            mandatory
+          />
         </form>
       </div>
     </div>
