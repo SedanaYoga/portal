@@ -3,12 +3,10 @@
 .admin {
   margin: 4rem auto 0;
   text-align: center;
-  width: 300px;
-  /* &Title { */
-  /* } */
+  width: 100%;
   &Form {
     margin-top: 1rem;
     @include centerFlexColumn;
-    gap: 10px;
+    gap: 15px;
   }
 }
