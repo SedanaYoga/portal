@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import styles from './Input.module.scss'
+import { capitalizeFirst } from '../../helper/text.helper'
 
 const Input = ({ children, inputValue, type, onChange, required, name }) => {
   const [value, setValue] = useState('')
@@ -49,7 +50,6 @@ const Input = ({ children, inputValue, type, onChange, required, name }) => {
           onChange={changeHandler}
           accept='/image/*'
           name={name}
-          required={required}
           style={{ display: 'none' }}
           ref={hiddenFileInput}
         />
@@ -65,13 +65,13 @@ const Input = ({ children, inputValue, type, onChange, required, name }) => {
 
       {type !== 'file' && (
         <label htmlFor={name} className={isFocus ? styles.active : ''}>
-          {children}
+          {capitalizeFirst(children)}
         </label>
       )}
 
       {type === 'file' && (
         <button type='button' onClick={fileClickHandle}>
-          {children}
+          {capitalizeFirst(children)}
         </button>
       )}
     </div>

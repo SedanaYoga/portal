@@ -3,6 +3,7 @@ import styles from './MultiInput.module.scss'
 import Input from '../Input/Input'
 import { produce } from 'immer'
 import { generate } from 'shortid'
+import { capitalizeFirst } from '../../helper/text.helper'
 
 const MultiInput = ({ input, onChange, objProps, mandatory }) => {
   const [values, setValues] = useState(
@@ -86,7 +87,7 @@ const MultiInput = ({ input, onChange, objProps, mandatory }) => {
       ))}
 
       <button type='button' onClick={addCollectionHandler}>
-        Add {input}
+        Add {capitalizeFirst(input)}
       </button>
     </div>
   )

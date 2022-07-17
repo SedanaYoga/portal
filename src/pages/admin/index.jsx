@@ -3,6 +3,7 @@ import Image from 'next/image'
 import NormalLayout from '../../layouts/Normal/NormalLayout'
 import Input from '../../components/Input/Input'
 import MultiInput from '../../components/MultiInput/MultiInput'
+import TechStack from '../../components/TechStack/TechStack'
 import styles from '../../styles/pages/Admin.module.scss'
 import { useState } from 'react'
 
@@ -27,6 +28,11 @@ const Admin = () => {
     }
   }
 
+  const submitHandler = (e) => {
+    e.preventDefault()
+    console.log(values)
+  }
+
   return (
     <div>
       <Head>
@@ -34,7 +40,7 @@ const Admin = () => {
       </Head>
       <div className={styles.admin}>
         <h1 className={styles.adminTitle}>Works Form</h1>
-        <form className={styles.adminForm}>
+        <form onSubmit={submitHandler} className={styles.adminForm}>
           <Input onChange={changeHandler} name='title'>
             Title
           </Input>
@@ -82,7 +88,10 @@ const Admin = () => {
           <MultiInput
             input='demo'
             onChange={changeHandler}
-            objProps={[{ type: 'file', title: 'file' }]}
+            objProps={[
+              { type: 'file', title: 'file' },
+              { type: 'text', title: 'description' },
+            ]}
             mandatory
           />
           <MultiInput
@@ -91,6 +100,12 @@ const Admin = () => {
             objProps={[{ type: 'text', title: 'text' }]}
             mandatory
           />
+          <TechStack
+            onChange={(values) => {
+              setValues((prev) => ({ ...prev, techStack: values }))
+            }}
+          />
+          <button type='submit'>Create Works</button>
         </form>
       </div>
     </div>
